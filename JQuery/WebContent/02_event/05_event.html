@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>강제로 이벤트를 일으키는 trigger</title>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+/*
+ *  trigger() 메소드는 이벤트가 발생될 때 실행될 함수나 on() 함수의 이벤트 핸들러를 강제로 실행시킨다.
+ 	사용자가 실행시키는 이벤트의 순서를 지정해서 실행할 수 있다.
+ 	파라미터 값은 이벤트 핸들러에 전달하기 위한 데이터로 생략 가능하다.
+ 	
+ 	대상태그, trigger("이벤트","파라미터")  파라미터는 굳이 안써도 된다.
+ */
+ 
+$(document).ready(function() {
+	$("h1").click(function() {
+		$(this).html($(this).html()+"+");	
+	});
+	setInterval(function() {
+		$("h1:last").trigger("click");  //강제로 click이라는 이벤트 일으킴
+	},500);		//0.5초마다
+});
+</script>
+</head>
+<body>
+<h1>test-1</h1>
+<h1>test-2</h1>
+<h1>test-3</h1>
+<h1>test-4</h1>
+
+</body>
+</html>

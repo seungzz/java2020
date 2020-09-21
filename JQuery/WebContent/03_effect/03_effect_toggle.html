@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+/* toggle() 메소드는 선택한 요소가 보이고 있으면 숨기고, 숨겨져 있으면 나타나도록 만드는 메소드*/
+</script>
+<script>
+$(function() {
+	$("#btn").on("click", function(){
+		$("h1").toggle("slow");		//토글(효과속도, 콜백함수)
+	});
+});
+
+
+
+
+</script>
+</head>
+<body>
+	<button id="btn">toggle</button>
+	<h1>내용</h1>
+</body>
+</html>

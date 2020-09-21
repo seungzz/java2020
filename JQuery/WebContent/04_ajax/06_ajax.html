@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+$(function (){
+	$("#ajaxBtn").click(function() {
+		/*$.ajax({
+			type: "GET",
+			url: "data/test.html"
+		}).done(function(data){
+			$("#resultDiv").html(data);
+		});
+	});*/
+	$.get(	//데이터를 서버에 HTTP GET 방식으로 전송한 후 서부측의 응답을 받는다.
+		"data/param.jsp",
+		{id:"tester", name:"테스터"},
+		function(data) {
+			$("#resultDiv").html(data);
+		} 
+		).fail(function() {
+			alert("실패")
+		});
+	});
+
+	$.post(	//post방식으로 데이터를 전송
+			"data/param.jsp",
+			{id:"tester", name:"테스터"},
+			function(data) {
+				$("#resultDiv").html(data);
+			}).fail(function() {
+				alert("실패");
+			});
+});
+</script>
+</head>
+<body>
+	<input type="button" id="ajaxBtn" value="호출">
+	<div id="resultDiv"></div>
+</body>
+</html>

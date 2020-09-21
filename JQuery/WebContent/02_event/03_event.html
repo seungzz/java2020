@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<style>
+div {
+	font-size:40px;
+	border: 5px solid black;
+}
+
+.reverse {
+	background: black;
+	color: white;
+}
+</style>
+<script>
+function test(val) {
+	switch(val){
+	case 1 :
+		$("div").off("click");	//div의 클릭 이벤트 제거
+		break;
+	case 2 :
+		$("div").off("mouseenter");
+		break;
+	case 3 :
+		$("div").off();
+	
+	case 4 : 
+		$("div").on({click: function() {
+			alert("클릭");
+		}, mouseenter: function() {
+			$(this).addClass("reverse");
+		},mouseleave: function() {
+			$(this).removeClass("reverse");
+		}
+			
+		});
+		break;
+}
+}
+
+</script>
+</head>
+<body>
+<input type="button" value="click off" onclick="test(1)">
+<input type="button" value="mouseenter off" onclick="test(2)">
+<input type="button" value="click, mouseenter off" onclick="test(3)">
+<input type="button" value="click, mouseenter on" onclick="test(4)">
+<div>이벤트테스트</div>
+</body>
+</html>

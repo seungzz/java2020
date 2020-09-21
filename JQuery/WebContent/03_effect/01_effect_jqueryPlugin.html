@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src = "jquery.innerfade.js"></script>
+<!-- 제이쿼리 플러그인
+제이쿼리 플러그인은 여러 개발자가 드래그&드롭, 슬라이드 배너, 툴팁 기능등을 구현해놓은 프로그램을 자바스크립트 파일로 제공하는 제이쿼리 라이브러리
+
+제이쿼리 플러그인은 사용하고자 하는 기능의 플러그인을 검색하며 내려받고, 웹문서에 연동하여 선택한 요소에 기능만 적용하면 간단한 코드삽입으로 
+복잡하고 어려운 기능을 쉽게 구현할 수 있게 만들어졌다. 그리고 거의 모든 플러그인에는 예제 파일이 포함되어있어 어렵지 않게 플러그인 기능 적용가능 
+www.htmldrive.net
+www.bestjquery.com
+
+플러그인을 상업적으로 이용하려면 저작권을 살펴보아야 한다.
+문서 상단에 저작권이 표시되어있음.
+
+-->
+
+<style>
+div{
+	width: 100px;
+	height: 100px;
+	position: relative;
+	background-color: purple;
+}
+</style>
+<script>
+$(document).ready(function() {
+	$('#news').innerfade({
+		//animationtype: Type of animation 'fade' or 'slide' (Default: 'fade'), 
+		animationtype: 'slide',
+		 //speed: Fading-/Sliding-Speed in milliseconds or keywords (slow, normal or fast) (Default: 'normal'), 
+		 speed: 'normal',
+		 
+		 //timeout: Time between the fades in milliseconds (Default: '2000'), 
+		 timeout: 2000,
+		 
+		 //type: Type of slideshow: 'sequence', 'random' or 'random_start' (Default: 'sequence'), 
+		 type: 'sequence',
+		 
+		 //containerheight: Height of the containing element in any css-height-value (Default: 'auto'),
+		 containerheight: 'auto',
+		 
+		 //runningclass: CSS-Class which the container get’s applied (Default: 'innerfade'),
+		 
+		 //children: optional children selector (Default: null)	
+		
+	});
+});
+</script>
+
+
+</head>
+<body>
+
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+
+
+<ul id ="news">
+<li>
+	<a href = "#n1">1번</a>
+</li>
+<li>
+	<a href = "#n1">2번</a>
+</li><li>
+	<a href = "#n1">3번</a>
+</li><li>
+	<a href = "#n1">4번</a>
+</li><li>
+	<a href = "#n1">5번</a>
+</li><li>
+	<a href = "#n1">6번</a>
+</li><li>
+	<a href = "#n1">7번</a>
+</li>
+<li>
+	<a href = "#n1">8번</a>
+</li>
+</ul>
+<br><br><br>
+<div><h1>jQuery효과 테스트...</h1>
+</div>
+</body>
+</html>

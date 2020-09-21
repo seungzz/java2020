@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+$(document).ready(function (event){
+	$("a").click(function (event){
+		$(this).css("background", "blue");
+		
+		event.stopPropagation(); //버블링만 막아준다. 
+		//return false;	//기본 이벤트와 이벤트 전달을 막는다.
+		alert("까꿍");
+		event.preventDefault(); //브라우저의 기본동작을 중지(링크이동중지)
+	});
+	$("h1").click(function() {
+		$(this).css("background","red");
+	});
+});
+</script>
+</head>
+<body>
+<h1><a href = "http://www.naver.com">네이버</a></h1>
+</body>
+</html>

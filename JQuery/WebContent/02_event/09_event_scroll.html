@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<script>
+$(document).ready(function() {
+	$(window).scroll(function() {
+	
+		
+		var scrollHeight = $(window).scrollTop() + $(window).height();	//doucument는 전체적인 길이 window는 화면에 표시된 길이
+		var documentHeight = $(document).height();	//웹사이트 전체의 세로길이
+		
+		console.log($(window).scrollTop()+"-"+$(window).height()+"-"+$(document).height());
+		
+		
+		if(scrollHeight>= documentHeight) {
+			for(var i=0; i<10; i++){
+				$('<h1>Infinity Scroll</h1>').appendTo('body');
+			}
+	})
+	})
+		
+		for(var i=0; i<20; i++) {
+			$('<h1>자동 스크롤</h1>').appendTo('body');
+		}
+	})
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

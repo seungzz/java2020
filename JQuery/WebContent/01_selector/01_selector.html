@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 
+	제이쿼리란? 
+	모질라사의 자바스크립트 개발자였던 존 레식이 자바스크립트를 이용해서 만든 라이브러리 언어이다.
+	
+	*라이브러리 언어란?
+	자바스크립트로 만들어진 다양한 함수들의 집합을 뜻한다.
+	
+	일반적인 자바스크립트에서 함수는 일련의 코드를 함수내에 정의했다가 필요할 때마다 호출하여 사용하는 것.
+	제이쿼리는 이런 다양한 함수들을 사용자에게 제공함으로써 자바스크립트에서 사용할 때 불편했던 몇가지 점들을
+	간편하게 사용할 수 있도록 개선하였음.
+	
+	제이쿼리에서 개선된 사항
+	1.호환성 문제
+	자바스크립트의 문서 객체 모델(DOM)과 이벤트 객체는 호환성이 떨어지는 단점이 있었다.
+	이런 호환성 문제가 있는 다른 브라우저에서도 제이쿼리는 호환성 문제가 모두 해결됐다.
+	2.쉽고 편리한 애니메이션 효과 기능 구현
+	자바스크립트로 애니메이션 효과를 구현하려면 많은 코드를 사용해야 하기 때문에 개발에 많은 시간 요구
+	하지만 제이쿼리는 애니메이션과 다양한 효과를 지원하는 메소드를 제공하기 때문에 개발 시간을 많이 단축 가능.
+
+	제이쿼리 라이브러리 연동하기
+	제이쿼리를 연동하는 방식은 다운로드 방식과 네트워크 전송 방식이 있다.
+	
+	1.다운로드방식
+	http://jquery.com/download/
+ -->
+
+<!--  <script type="text/javascript" src="../script/jquery.min.js">
+</script> 다운로드방식-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	alert($('#test').html());
+	$('#test').html("변경된 jQuery");
+}); 
+//S("css선택자")
+
+</script>
+</head>
+<body>
+<div id="test">jQuery연습</div>
+</body>
+</html>

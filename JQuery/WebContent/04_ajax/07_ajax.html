@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+$(function () {
+	$("#ajaxBtn").click(function() {
+		$.getJSON(
+				"data/resJSON2.jsp",
+				function(data) {
+					var rData ="이름: "+data.name+"<br>"+"나이: "+data.age+"<br>"
+					+"주소: "+data.addr+"<br>";
+					$("#resultDiv").html(rData);
+				}
+				).fail(function() {
+					alert("실패");
+				});
+	});
+});
+
+</script>
+</head>
+<body>
+	<input type = "button" id="ajaxBtn" value="호출">
+	<div id="resultDiv"></div>
+</body>
+</html>

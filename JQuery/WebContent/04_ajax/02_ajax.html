@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+/*load() 메소드는 사용자가 지정한 URL주소에 데이터를 전송하고 외부 콘텐츠를 요청하여 가져올 때 사용한다.
+ * 요청한 콘텐츠를 사용하여 선택한 요소의 내용을 바꿀 수 있다.
+ */
+  $(function() {
+	  $("#newsWrap_1").load("02_ajax_news.html #news_1");
+	  $("#newsWrap_2").load("02_ajax_news.html #news_2");
+  });
+  	
+</script>
+</head>
+<body>
+ <h1>LOAD</h1>
+ <div id="newsWrap_1"></div>
+ <h1>LOAD</h1>
+ <div id="newsWrap_2"></div>
+</body>
+</html>

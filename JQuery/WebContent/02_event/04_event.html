@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+
+$(document).ready(function() {
+	$("div").click(function() {
+		alert($("h1",this).html());	//이벤트가 일어난 곳의 태그 선택
+	});
+});
+</script>
+</head>
+<body>
+<div><h1>이벤트 테스트-1</h1></div>
+<div><h1>이벤트 테스트-2</h1></div>
+<div><h1>이벤트 테스트-3</h1></div>
+
+</body>
+</html>

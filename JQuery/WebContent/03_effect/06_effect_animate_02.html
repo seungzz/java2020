@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+/*
+ * $(요소선택).animate({스타일속성}, 적용시간, 가속도, 콜백함수)
+ * 가속도 속성: swing, linear
+ * swing: 시작과 끝은 느리게 중간은 빠른 속도로 움직인다(기본값)
+ * linear: 일정한 속도로 움직인다. 
+ */
+$(function() {
+	$(".btn1").on("click", function() {
+		$(".txt1").animate({
+			marginLeft:"500px",
+			fontSize:"30px"
+		},2000,"linear", function() {
+			alert("모션완료")
+		});
+	});
+	$(".btn2").on("click", function() {
+		$(".txt2").animate({
+			marginLeft:"+=50px",
+		},1000);
+	});
+	
+	
+	
+	
+});		
+	
+
+
+</script>
+<style>
+.txt1{background-color: aqua;}
+.txt2{background-color: pink;}
+</style>
+
+</head>
+<body>
+<p><button class="btn1">버튼1</button></p>
+<span class="txt1">"500px"이동</span>
+<p><button class="btn2">버튼2</button></p>
+<span class="txt2">"50px"이동</span>
+</body>
+</html>

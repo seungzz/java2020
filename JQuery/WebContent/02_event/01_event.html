@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+$(document).ready(function () {
+	$('div').on("click",function() {
+		//on()메소드 같은 경우는 그룹 이벤트 등록 메소드를 
+		//사용하기 위해 사용합니다.
+		
+		var content = $(this).html()+"+";
+		$(this).html(content);
+		$(this).html($(this).html()+"+");
+		
+	})
+	
+
+	$("#div2").on({
+		click:function() {
+			alert("클릭!")	
+		}, mouseenter:function() {
+			$(this).addClass("reverse");
+		},mouseleave:function() {
+			$(this).removeClass("reverse");
+		}
+	});
+	});
+
+
+</script>
+<style>
+div {
+	font-size:40px;
+	border: 5px solid black;
+}
+
+.reverse {
+	background: black;
+}
+</style>
+</head>
+<body>
+<div>이벤트테스트</div>
+
+<div id="div2">이벤트 테스트</div>
+</body>
+</html>

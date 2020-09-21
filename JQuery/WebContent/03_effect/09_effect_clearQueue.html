@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<script>
+/* clearQueue() 메소드는 진행중인 (첫번째) 애니메이션을 제외하고 큐에서 대기하는 모든 애니메이션 함수를 제거한다.
+ */
+ 
+ $(function() {
+ $(".txt1").animate({margin:"100px"},1000)
+ .animate({margin:"300px"},1000)
+ .animate({margin:"400px"},1000)
+ 
+  $(".txt2").animate({margin:"100px"},1000)
+ .animate({margin:"300px"},1000)
+ .animate({margin:"400px"},1000)
+ $(".txt2").clearQueue();
+ });
+</script>
+
+<style>
+.txt1, .txt2 {
+	width: 50px;
+	text-align: center;
+	background-color: aqua;
+}
+
+.txt2 {
+	background-color: orange;
+}
+</style>
+</head>
+<body>
+	<p class="txt1">내용1</p>
+	<p class="txt2">내용2</p>
+</body>
+</html>

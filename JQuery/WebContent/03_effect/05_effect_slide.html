@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+/*slidUp() slideDown() slideToggle()메소드
+ *이 메소드들은 요소를 숨길때는 위로 점차 접히며 숨겨지고, 드러날떄는 반대로 정차 아래로 펼쳐지게 하며 노출시킨다.
+ */
+$(function() {
+	$("#btn1").on("click", function() {
+		$("h1").slideUp(1000);
+	});
+	$("#btn2").on("click", function() {
+		$("h1").slideDown(1000);
+	});
+	$("#btn3").on("click", function() {
+		$("h1").slideToggle("fast");
+	});
+});
+</script>
+</head>
+<body>
+<button id="btn1">slideUp</button>
+<button id="btn2">slideDown</button>
+<button id="btn3">slideToggle</button>
+<h1>내용</h1>
+<p>안사라짐</p>
+</body>
+</html>

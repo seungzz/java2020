@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+/* fadeOut() fadeIn() fadeToggle() 메소드
+ * fadeOut()은 선택한 요소를 투명하게 만들때 사용하는 메소드
+ * fadeIn()은 숨겨져 있다면 다시 나타나네 한다.
+ * fadeTo()는 선택한 요소를 지정한 투명도의 값까지만 숨긴다.
+ * 투명도는 (0~1)까지이며 투명도는 돌아오지 않는다. 
+ */
+$(function() {
+	$("#btn1").on("click", function() {
+		$("h1").fadeOut(1000);		//fadeOut(효과속도, 콜백함수);
+	});
+	
+	$("#btn2").on("click", function() {
+		$("h1").fadeIn("slow");
+	});
+	
+	$("#btn3").on("click", function() {
+		$("h1").fadeToggle("fast");
+	});
+	$("#btn4").on("click", function() {
+		$("h1").fadeTo("slow", 0.3);	//fadeTo("효과속도", 투명도, 콜백함수	);
+	});
+	$("#btn5").on("click", function() {
+		$("h1").fadeTo("slow", 0);	
+	});
+});
+
+</script>	
+</head>
+<body>
+<button id="btn1">fadeOut</button>
+<button id="btn2">fadeIn</button>
+<button id="btn3">fadeToggle</button>
+<button id="btn4">투명도(30%)</button>
+<button id="btn5">투명도(100%)</button>
+
+<h1>내용</h1>
+<p>안사라짐</p>
+</body>
+</html>
