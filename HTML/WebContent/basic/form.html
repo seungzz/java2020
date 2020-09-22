@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!--  method 속성은 get과 post가 있다.
+		get:주소표시줄에 사용자가 입력한 내용이 그대로 드러남 256~4096byte까지만 전송가능
+		post:대부분사용. 주소표시줄에는 드러나지 않는다. 입력내용 길이에 제한을 받지 않음-->
+
+	<form action="처리페이지 주소" name="nForm" method="get">
+	text: <input type="text" name="firstName"><br>
+	password: <input type="password" name="password"><br>
+	radio: <input type = "radio" name = "gender"> 남
+			<input type = "radio" name = "gender"> 여<br>
+	checkbox : <input type = "checkbox"> 여행 <input type="checkbox">독서
+	<input type = "checkbox">등산 file : <input type = "file"><br>
+	
+	<select>
+		<option>선택하세요</option>
+		<option>초등학생</option>
+		<option>중학생</option>
+		<option>고등학생</option>
+		<option>대학생</option>
+		<option>성인</option>
+	</select>
+
+<textarea rows="10" cols="80"></textarea>
+
+<input type = "submit" value = "작성">
+<!-- 화면에 입력한 데이터를 form에 지정한 페이지를 이동할 때 사용 -->
+<input type = "reset" value = "재작성">
+<!-- 사용자가 화면에 입력한 데이터를 초기화 할 때 사용 -->
+<input type = "button" value = "클릭" onclick= "alert('밥고고');">
+<!-- button은 원래 아무 액션이 없지만 사용자가 직접 ㅡ크립트 문법을 통해지정 -->
+<label for = "id">아이디입력
+<input type = "text" id = "id">
+</label>
+주문개수: <input type = "range" min ="1" max = "5" value = "1">개
+<p>당신이 가장 좋아하는 색상은 무엇인가요?</p>
+<label> 선호색상<input type="color" value = "black"></label>
+날짜를 선택하세요<input type = "date" id ="start">
+<input type = "date" id ="end">
+<input type = "image" src = ../images/fun.jpg" alt = "전송">
+</form>
+</body>
+</html>
