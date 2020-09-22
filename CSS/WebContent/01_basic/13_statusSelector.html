@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+input:checked ~ div {
+background-color: red;
+}
+input:focus {
+	background-color: gray;
+}
+input:disabled {
+	background-color : orange;
+}
+</style>
+</head>
+<body>
+<input type ="checkbox" checked="checked">
+<input type="text">
+<input type="text" disabled="disabled"> 
+
+<div>
+<h1>체크되면 빨간색으로 변경됩니다.</h1>
+</div>
+
+
+</body>
+</html>

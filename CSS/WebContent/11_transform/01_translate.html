@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+div{
+	background-color: yellow;
+	width: 200px; height: 150px;
+	float: left;
+	margin: 50px;
+}
+
+#x > img{
+	transform: translateX(20px);
+}
+img{
+width: 200px; height: 150px;}
+
+#y > img {
+transform: translateY(20px);}
+
+
+#z > img {
+transform: translateZ(80px);}
+
+#all > img {
+	transform: perspective(300px) translate(40px, 40px);}
+
+}
+</style>
+</head>
+<body>
+<h1>translate(이동)</h1>
+<div id="x"><img src="../images/pic1.jpg"></div>
+<div id="y"><img src="../images/pic2.jpg"></div>
+<div id="z"><img src="../images/pic3.jpg"></div>
+<div id="all"><img src="../images/pic4.jpg"></div>
+
+</body>
+</html>

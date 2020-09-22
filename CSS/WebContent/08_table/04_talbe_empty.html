@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>표의 빈칸 보이기/없애기</title>
+<style>
+.schedule {
+	border-collapse: seperate;
+	margin: 20px;
+	}
+td {
+	border: 1px solid black;
+	padding: 10px;
+	text-align: center;
+}
+
+#tb1 td {
+	empty-cells: show;
+}
+#tb2 td {
+	empty-cells: hide;
+}
+/*empty-cells는 내용없는 셀들의 테두리 표시여부를 지정하는 속성*/
+</style>
+</head>
+<body>
+<table class="schedule" id="tb1">
+	<caption>프로축구경기일정</caption>
+<tr>
+	<td>울산</td>
+	<td> 울산 vs 인천</td>
+	<td>TV중계</td>
+</tr>
+<tr>
+	<td>부산</td>
+	<td> 부산 vs 대전</td>
+		<td></td>
+	
+</tr>
+<tr>
+	<td>서울</td>
+	<td> 서울 vs 강원</td>
+		<td></td>
+	
+</tr>
+</table>
+<table class="schedule" id="tb2">
+	<caption>프로축구경기일정</caption>
+<tr>
+	<td>울산</td>
+	<td> 울산 vs 인천</td>
+		<td>TV중계</td>
+		
+</tr>
+<tr>
+	<td>부산</td>
+	<td> 부산 vs 대전</td>
+		<td></td>
+	
+</tr>
+<tr>
+	<td>서울</td>
+	<td> 서울 vs 강원</td>
+		<td></td>
+	
+</tr>
+</table>
+</body>
+</html>

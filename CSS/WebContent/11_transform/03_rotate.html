@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>rotate (회전)</title>
+<style>
+div{
+	background-color: yellow;
+	width: 200px; height: 150px;
+	border: 2px solid;
+	float: left;
+	margin: 50px;
+	perspective: 300px;}
+	
+img {
+	width: 200px; height: 150px;
+}
+#x > img {
+	transform: rotateX(45deg);
+}
+#y > img {
+	transform: rotateY(45deg);
+}
+#z > img {
+	transform: rotateZ(45deg);	
+}
+</style>
+</head>
+<body>
+	<p>rotate(회전)</p>
+	<div id="x"> <img src="../images/pic1.jpg"></div>
+	<div id="y"> <img src="../images/pic2.jpg"></div>
+	<div id="z"> <img src="../images/pic3.jpg"></div>
+	
+</body>
+</html>

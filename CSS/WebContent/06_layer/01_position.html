@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+#static_layer {
+position: static; left: 300; top: 200; width: 200;
+		height: 100; background-color: orange;
+}/* static layer: 요소를 문서의 흐름에 맞춰 배치한다. static은 position속성의 기본값으로 요소를 나열한 순서대로 배치하며 top이나
+	right, bottom, left 같은 속성을 사용하 ㄹ수 없음. 단지 float속성을 통해 좌우로 배치할 수 있다.*/
+/* position 속성 중 top, bottom left, right란 위쪽에서 얼마나 떨어져 있는지 혹은 아래에서 얼마나 떨어져 있는지,
+	왼쪽에서 얼마나 떨어져 있는지, 오른쪽에서 얼마나 떨어져 있는지를 나타내는 값이다.*/
+#relative_layer {
+position: relative; left: 300; top: 0; width: 200;
+		height:100; background-color: pink;
+}/* relative layer: 이전 요소에 자연스럽게 연결해 배치하되 위치를 지정할 수 있다. static처럼 나열한 순서대로 배치되지만
+right, top, bottom 같은 속성을 사용할 수 있다. 원래 자연스럽게 배치되어야할 좌표를 중심으로 입력한 값 만큼 이동해서 위치*/
+#absolute_layer {
+position: absolute; left: 100px; top: 100px; width:200;
+		height: 100; background-color: yellow;
+}/* absolute layer: 원하는 위치에 지정해 배치.(스크롤 가능) absolute 속성을 사용하면 문서의 흐름과 상관없이 속성값을 이용해
+	요소를 원하는 위치에 배치할 수 있음. 기준위치는 가장 가까운 부모요소중 position 속성이 relative인 요소.
+	그래서 absolute를 사용하려면 그 요소를 감싸는 <div>를 만들고 position을 relative로 지정하고 사용해야함.*/
+#fixed_layer {
+position: fixed;<br> left: 400; top: 300;<br> width: 200;
+			height: 100; <br> background-color: orange;
+}#parent { 
+position: absolute;
+left: 300px;
+top: 300px;
+width: 800;
+height: 300;
+border: 1px solid;
+background-color: orange;
+}
+#fixed_layer2 {
+
+
+}
+
+</style>
+</head>
+<body>
+	<h1>스타일 시트 적용하기</h1>
+	<hr>
+	<div id="static_layer">
+		position: static;<br> left: 300; top: 200;<br> width: 200;
+		height: 100;<br> background-color: orange;
+	</div>
+	<div id="relative_layer">
+		position: relative;<br> left: 300; top: 0;<br> width: 200;
+		height:100;<br> background-color: pink;
+	</div>
+
+	<div id="absolute_layer">
+		position: absolute;<br> left: 100; top: 100;<br> width:200;
+		height: 100;<br> background-color: yellow;
+	</div>
+	<div id="parent">
+		<div id="static_layer">
+			position: static;<br> left: 300; top: 200;<br> width: 200;
+			height: 100;<br> background-color: orange;
+		</div>
+		<div id="relative_layer">
+			position: relative;<br> left: 300; top: 0;<br> width: 200;
+			height:100;<br> background-color: pink;
+		</div>
+		<div id="absolute_layer">
+			position: absolute;<br> left: 100; top: 100;<br> width:200;
+			height: 100;<br> background-color: yellow;
+		</div>
+		<div id="fixed_layer">
+			position: fixed;<br> left: 400; top: 300;<br> width: 200;
+			height: 100; <br> background-color: orange;
+		</div>
+	</div>
+</body>
+</html>

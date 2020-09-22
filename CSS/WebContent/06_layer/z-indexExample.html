@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+body{
+font-size: 20px;
+font-weight: bold;}
+div{
+width: 100px;
+height: 100px;
+border: solid;
+}
+
+#layer1 {
+	position: absolute;
+	left: 300px; top: 100px;
+	background-color: red;
+	z-index:1;
+}
+#layer2 {
+	position: absolute;
+	left: 350px; top: 120px;
+	background-color: yellow;
+	z-index:3;
+}
+#layer3 {
+	position: absolute;
+	left: 330px; top: 150px;
+	background-color: skyblue;
+	z-index:2;
+}
+</style>
+</head>
+<body>
+	<div id="layer1">
+	1
+	</div>
+	<div id="layer2">
+	2
+	</div>
+	<div id="layer3">
+	3</div>
+
+</body>
+</html>

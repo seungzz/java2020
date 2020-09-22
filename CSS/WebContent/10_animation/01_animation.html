@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#outer > div {
+	width: 200px; height: 200px;
+	background-color: red;
+	animation-name: frame1;
+	animation-duration: 2s;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+	animation-timing-function : ease-in
+	}
+	@keyframes frame1{
+		from {background-color: red; border-radius: 0px;}
+		to { background-color: blue; border-radius: 100px;}
+	}
+	@ketframes frame2{
+	0% {background-color: red; border-radius: 0px;}
+	100% {background-color: blue; border-radius: 100px;}
+	}
+
+
+</style>
+</head>
+<body>
+<p> animation 속성 연습 </p>
+<div id="outer">
+	<div></div>
+</div>
+</body>
+</html>

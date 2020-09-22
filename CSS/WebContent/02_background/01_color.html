@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+/* color를 표현하는 방법이 크게 3가지 정도가 존재합니다.
+   
+   1. 색깔을 직접 입력하는 방법 ex) black, white
+   2. #000000 #후에 16진수로 0~255까지 세개를 입력하는 방법 r,g,b 의 비율 조절
+   #000000 -> 검정색, #ffffff -> 흰색, f가 두번씩 중복되는 경우 하나로 줄여 줄수 있습니다. 
+   #ffffff -> #fff
+   3.rgb(0~255,0~255,0~255) rgba(0~255,0~255,0~255,0~1)
+   rgba 중 a는 알파로 불투명도 값을 나타냅니다.
+   0~1까지 값중에 0이면 투명, 1이면 완전 불투명입니다. 	
+*/
+
+h1{	
+	background-color:orange;
+}
+div{
+	background-color:rgb(255,0,0);
+}
+p{
+	background-color:#b0c4de;
+}
+
+</style>
+</head>
+<body>
+<h1>배경색 바꾸기</h1>
+<div>CSS 적용된 DIV
+<p> CSS 적용된 P</p>
+</div>
+
+</body>
+</html>

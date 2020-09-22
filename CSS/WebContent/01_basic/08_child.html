@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+div ul {
+	border: 2px dotted purple;
+}
+div > ul {
+	border: 2px dotted orange;
+}/*
+div > ul은 div의 자식 태그인(바로 밑에만 손자x) ul 태그에만 적용되는 스타일. div ul은 div밑에 있는 모든 ul에 적용
+*/
+</style>
+</head>
+<body>
+	<div>
+		<h1>장기과정 커리큘럼</h1>
+		<ul>
+			<li>JAvVA
+				<ul>
+					<li>자바의 특징</li>
+					<li>연산자</li>
+					<li>제어문(조건반복)</li>
+				</ul>
+			</li>
+			<li>SQL
+				<ul>
+					<li>Select</li>
+					<li>insert</li>
+					<li>update</li>
+					<li>delete</li>
+				</ul>
+			</li>
+			<li>JDBC</li>
+			<li>HTML</li>
+			<li>Seervlet&JSP</li>
+			<li>CSS</li>
+		</ul>
+	</div>
+</body>
+</html>
