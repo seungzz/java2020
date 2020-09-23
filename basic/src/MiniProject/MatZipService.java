@@ -4,6 +4,7 @@ import java.io.*;
 import java.util.*;
 
 public class MatZipService {
+	
 	Scanner scanner = new Scanner(System.in);
 	ArrayList<Matzip_VO> mz = new ArrayList<Matzip_VO>();
 	ArrayList<Member_VO> me	= new ArrayList<Member_VO>();
@@ -38,10 +39,10 @@ public class MatZipService {
 			String str= null;
 			for(Matzip_VO p : mz) {
 				if(p.getStoreName().contains(insertName)) {
-					str = p.storeLocation +"\t";
-					str +=p.storeNum+"\t";
-					str +=p.recommendedMenu+"\t";
-					str +=p.price;
+					str = p.getStoreLocation() +"\t";
+					str +=p.getStoreNum()+"\t";
+					str +=p.getRecommendedMenu()+"\t";
+					str +=p.getPrice();
 					count++;
 				} 
 			}
@@ -60,11 +61,11 @@ public class MatZipService {
 			count =0;
 			str= null;
 			for(Matzip_VO p : mz) {
-				if(p.storeLocation.equals(insertLocation)) {
-					str = p.storeName +"\t";
-					str +=p.storeNum+"\t";
-					str +=p.recommendedMenu+"\t";
-					str +=p.price;
+				if(p.getStoreLocation().equals(insertLocation)) {
+					str = p.getStoreName() +"\t";
+					str +=p.getStoreNum()+"\t";
+					str +=p.getRecommendedMenu()+"\t";
+					str +=p.getPrice();
 					count++;
 				}
 			}
@@ -81,11 +82,11 @@ public class MatZipService {
 			count =0;
 			str= null;
 			for(Matzip_VO p :mz) {
-				if(p.storeNum.equals(insertNum)) {
-					str = p.storeName +"\t";
-					str +=p.storeNum+"\t";
-					str +=p.recommendedMenu+"\t";
-					str +=p.price;
+				if(p.getStoreNum().equals(insertNum)) {
+					str = p.getStoreName() +"\t";
+					str +=p.getStoreNum()+"\t";
+					str +=p.getRecommendedMenu()+"\t";
+					str +=p.getPrice();
 					count++;
 				}System.out.println("총 " +count+"건이 검색되었습니다." );
 				System.out.println(str);
@@ -101,11 +102,11 @@ public class MatZipService {
 			count =0;
 			str= null;
 			for(Matzip_VO p :mz) {
-				if(p.recommendedMenu.equals(insertMenu)) {
-					str = p.storeName +"\t";
-					str +=p.storeNum+"\t";
-					str +=p.storeLocation+"\t";
-					str +=p.price;
+				if(p.getRecommendedMenu().equals(insertMenu)) {
+					str = p.getStoreName() +"\t";
+					str +=p.getStoreNum()+"\t";
+					str +=p.getStoreLocation()+"\t";
+					str +=p.getPrice();
 					count++;
 				}System.out.println("총 " +count+"건이 검색되었습니다." );
 				System.out.println(str);
@@ -122,44 +123,44 @@ public class MatZipService {
 			 if(insertPrice==1) {
 				 System.out.println("1.1만원 이하 : ");
 				 for(Matzip_VO p :mz) {
-					 if(p.price<10000) {
-						 System.out.println(p.storeName);
-							System.out.print(p.storeLocation);
-							System.out.print(p.storeNum);
-							System.out.println(p.recommendedMenu);
+					 if(p.getPrice()<10000) {
+						 System.out.println(p.getStoreName());
+							System.out.print(p.getStoreLocation());
+							System.out.print(p.getStoreNum());
+							System.out.println(p.getRecommendedMenu());
 
 					 }
 				 }
 			 }else if(insertPrice ==2) {
 				 System.out.println("2.~1만원대 ");
 				 for(Matzip_VO p :mz) {
-					 if(10000<=p.price && p.price<20000) {
-						 System.out.println(p.storeName);
-							System.out.print(p.storeLocation);
-							System.out.print(p.storeNum);
-							System.out.println(p.recommendedMenu);
+					 if(10000<=p.getPrice() && p.getPrice()<20000) {
+						 System.out.println(p.getStoreName());
+							System.out.print(p.getStoreLocation());
+							System.out.print(p.getStoreNum());
+							System.out.println(p.getRecommendedMenu());
 
 					 }
 				 }
 			 }else if(insertPrice ==3) {
 				 System.out.println("3.~2만원대 ");
 				 for(Matzip_VO p :mz) {
-					 if(20000<=p.price && p.price<30000) {
-						 System.out.println(p.storeName);
-							System.out.print(p.storeLocation);
-							System.out.print(p.storeNum);
-							System.out.println(p.recommendedMenu);
+					 if(20000<=p.getPrice() && p.getPrice()<30000) {
+						 System.out.println(p.getStoreName());
+							System.out.print(p.getStoreLocation());
+							System.out.print(p.getStoreNum());
+							System.out.println(p.getRecommendedMenu());
 
 					 }
 				 }
 		}else if(insertPrice ==4) {
 			 System.out.println(" 4.~3만원대 ");
 			 for(Matzip_VO p :mz) {
-				 if(30000<=p.price && p.price<40000) {
-					 System.out.println(p.storeName);
-						System.out.print(p.storeLocation);
-						System.out.print(p.storeNum);
-						System.out.println(p.recommendedMenu);
+				 if(30000<=p.getPrice() && p.getPrice()<40000) {
+					 System.out.println(p.getStoreName());
+						System.out.print(p.getStoreLocation());
+						System.out.print(p.getStoreNum());
+						System.out.println(p.getRecommendedMenu());
 
 				 }
 			 }
@@ -222,10 +223,10 @@ public class MatZipService {
 					System.out.println("수정할 상호명을 입력해주세요.");
 					String modiName = scanner.nextLine();
 					for(Matzip_VO p : mz) {
-						if(modiName.contains(p.storeName)) {
+						if(modiName.contains(p.getStoreName())) {
 							System.out.println("새로운 상호명을 입력해주세요.");
 							String newName = mo.nextLine();
-							p.storeName = newName;
+							p.setStoreName(newName);
 							break sj;
 						}
 					}
@@ -234,10 +235,10 @@ public class MatZipService {
 					System.out.println("수정할 지역을 입력해주세요.");
 					String region = scanner.nextLine();
 					for(Matzip_VO p : mz) {
-						if(region.contains(p.storeLocation)) {
+						if(region.contains(p.getStoreLocation())) {
 							System.out.println("새로운 지역명을 입력해주세요.");
 							String newLocation = mo.nextLine();		//mo라는 스캐너로 스캔한다
-							p.storeLocation = newLocation;
+							p.setStoreLocation(newLocation);
 							break sj;
 						}
 					}
@@ -246,10 +247,10 @@ public class MatZipService {
 					System.out.println("수정할 번호를 입력해주세요.");
 					String num = scanner.nextLine();
 					for(Matzip_VO p : mz) {
-						if(num.contains(p.storeNum)) {
+						if(num.contains(p.getStoreNum())) {
 							System.out.println("새로운 번호를 입력해주세요.");
 							String newNum = mo.nextLine();
-							p.storeNum = newNum;
+							p.setStoreNum(newNum);
 							break sj;
 						}
 					}
@@ -258,10 +259,10 @@ public class MatZipService {
 					System.out.println("수정할 추천메뉴를 입력해주세요.");
 					String menu = scanner.nextLine();
 					for(Matzip_VO p : mz) {
-						if(menu.contains(p.recommendedMenu)) {
+						if(menu.contains(p.getRecommendedMenu())) {
 							System.out.println("새로운 추천메뉴를 입력해주세요.");
 							String newMenu = mo.nextLine();
-							p.recommendedMenu = newMenu;
+							p.setRecommendedMenu(newMenu);
 							break sj;
 						}
 					}
@@ -271,10 +272,10 @@ public class MatZipService {
 					int price = scanner.nextInt();
 					scanner.nextLine();
 					for(Matzip_VO p : mz) {
-						if(price== p.price) {
+						if(price== p.getPrice()) {
 							System.out.println("새로운 가격을 입력해주세요.");
 							String newNum = mo.nextLine();
-							p.storeNum = newNum;
+							p.setStoreNum(newNum);
 							break sj;
 						}
 					}
@@ -286,8 +287,8 @@ public class MatZipService {
 		FileWriter fw = new FileWriter(file);
 		for(int i=0; i<mz.size(); i++) {
 			Matzip_VO str = mz.get(i);
-			fw.write(str.getNo()+",\t"+str.getStoreName()+",\t"+str.storeNum+",\t"+str.storeLocation
-					+",\t"+str.recommendedMenu+",\t"+str.getPrice()+"\n");
+			fw.write(str.getNo()+",\t"+str.getStoreName()+",\t"+str.getStoreNum()+",\t"+str.getStoreLocation()
+					+",\t"+str.getRecommendedMenu()+",\t"+str.getPrice()+"\n");
 		}
 			System.out.println("파일이 저장되었습니다.");
 			fw.flush();

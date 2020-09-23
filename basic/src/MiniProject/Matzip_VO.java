@@ -1,19 +1,19 @@
 package MiniProject;
 
 public class Matzip_VO extends Product_VO{
-	
-		String storeName;
-		String storeNum;
-		String storeLocation;
-		String recommendedMenu;
-		int price;
+		private String storeName;
+		private String storeNum;
+		private String storeLocation;
+		private	String recommendedMenu;
+		private int price;
 		
 	
 		
 		
 
 		public Matzip_VO(int no, String storeName,String storeNum,String storeLocation, String recommendedMenu,int price) {
-			this.no = no;
+			
+			super.setNo(no);
 			this.storeName = storeName;
 			this.storeNum = storeNum;
 			this.storeLocation = storeLocation;
@@ -25,7 +25,7 @@ public class Matzip_VO extends Product_VO{
 			return storeName;
 		}public void setStoreName(String storeName) {
 			this.storeName = storeName;}
-		public String getStoreNum() {
+		String getStoreNum() {
 			return storeNum;
 		}
 

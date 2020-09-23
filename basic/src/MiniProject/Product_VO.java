@@ -1,8 +1,8 @@
 package MiniProject;
 
 public class Product_VO {
-	String name;
-	int no;
+	 private String name;
+	 private int no;
 	
 	
 	public String getName() {

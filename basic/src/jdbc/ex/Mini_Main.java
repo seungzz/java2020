@@ -7,24 +7,24 @@ public class Mini_Main {
 		MiniDAO miniDAO = new MiniDAO();
 		Scanner sc = new Scanner(System.in);
 		boolean run = true;
-		while(run) {
-			System.out.println("1.선택하기 2.삽입하기 3.갱신하기 4.삭제하기");
+		while (run) {
+			System.out.println("1.선택하기 2.삽입하기 3.갱신하기 4.삭제하기 5.종료");
 			System.out.println("선택>>");
-			switch(sc.nextLine()){
-			case "1" :
+
+			int selectNo = sc.nextInt();
+			if (selectNo == 1) {
 				miniDAO.select();
-				break;
-			case "2" :
+			} else if (selectNo == 2) {
 				miniDAO.insert();
-				break;
-			case "3" :
+			} else if (selectNo == 3) {
 				miniDAO.update();
-				break;
-			case "4" :
+			} else if (selectNo == 4) {
 				miniDAO.delete();
-				break;
-			
-			} run = false;
+			} else if (selectNo == 5) {
+				run = false;
+			}
 		}
+		System.out.println("종료되었습니다.");
 	}
+
 }
