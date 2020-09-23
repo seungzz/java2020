@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+var currentFile;
+var audio;
+
+window.onload = function() {
+	audio = document.getElementById("myAudio");
+	
+	var audiofile = document.getElementById("audioFile");
+	
+	document.getElementById("play").onclick = function() {
+		if(audiofile.value==""){
+		alert("파일을 선택해주세요.");
+		return false;
+		}
+		alert(audiofile.value);
+		if(currentFile != audiofile.value){
+			currentFile = audiofile.value;
+			audio.src = audiofile.value;
+		}
+		if(audio.paused){ //일시중지 상태일경우 true
+			audio.play();
+			document.getElementById("play").innerHTML="일시정지";
+		}else {
+			audio.pause();
+			document.getElementById("play").innerHTML="재생";
+		}
+		audio.ontimeupdate = function(){
+			var currTime = audio.currentTime;	//파일의 현재 플레이 시간
+			var duration = audio.duration;	//파일의 전체 플레이 시간
+			
+			console.log("현재 플레이시간 :"+currTime+",전체시간 :"+duration);
+			var time = document.getElementById("span");
+			time.innerHTML = Math.floor(currTime/60)+":"+Math.floor(currTime%60);
+		}
+	}
+	
+}
+
+</script>
+</head>
+<body>
+<audio id="myAudio" controls loop autoplay>
+<source src ="exid.mp3">	
+<!-- <source>태그는 멀티미디어컨텐츠를 표시하기위해 video, audio 요소를 사용할경우 해당 자료의 위치를 지정할때 사용합니다. html5에서 추가되었습니다. -->
+</audio>
+<p>
+<select id="audioFile">
+<option value="">==선택==</option>
+<option value="exid.mp3">==exid==</option>
+<option value="MyType.mp3">==MyType==</option>
+</select>
+</p>
+<p>
+<button id="play">시작</button>
+<button id="backword">뒤로</button>
+<button id="forword">앞으로</button>
+<button id="rewind">다시 시작</button>
+
+</p>
+<span id="span">0:0</span>
+</body>
+</html>

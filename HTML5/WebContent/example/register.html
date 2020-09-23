@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>강승지 회원가입 페이지</title>
+<style>
+div {
+ border: 2px solid black;
+ width: 550px;
+ height: 350px;
+}
+
+#c {
+ background: orange;
+ border: 0px;
+ width: 100px;
+ height: 30px;
+ font-size: 16px;
+ color: white;
+}
+
+#id-search {
+ background: red;
+ border: 0px;
+ color: white;
+}
+</style>
+</head>
+<body>
+<div>
+<p style="text-align: center; font-weight: bold">회원정보입력</p>
+<pre>
+아이디           <input type="text" id="name" size="20"> <input type="button" id="id-search" value="중복검사"><br>
+패스워드         <input type="password" id="password" size="20"><br>
+패스워드 확인    <input type="password" id="chpassword" size="20"><br>
+이름             <input type="text" id="user-name" size="20"><br>
+휴대폰번호       <input type="tel" id="phone" size="20"><br>
+이메일           <input type="email" id="email" size="20" style="in"><br>
+성별              <input type="radio" name="sex" value="male">남성  <input type="radio" name="sex" value="female">여성<br>
+          <input id="c" type="submit" value="제출"> <input id = "c" type="reset" value="초기화"></pre>
+
+
+</div>
+</body>
+</html>

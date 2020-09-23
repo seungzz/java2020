@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>travel</title>
+<style>
+body {
+font-family: 맑은고딕;
+}
+tr > td {
+border: 1px solid black;
+}
+hr {
+	border: red solid 1px;
+}
+ul {
+	list-style-type: none;
+}
+ul.a > li {
+	display: inline-block;
+	margin: 20px;
+	text-align: center;
+}
+ul.b {
+	display: inline-block;
+	margin: 20px;
+	border: 1px solid black;
+	
+}
+#left {
+	float: left;
+	width: 250px;
+	height: 650px;
+}
+#right {
+	float: right;
+	width: 250px;
+	height: 650px;
+}
+
+#mid {
+	float: left;
+	width: 960px;
+	height: 450px;
+}
+aside {
+	height: 650px;
+}
+img {
+	height: 300px;
+	width: 300px;
+}
+article > div {
+	width: 400px;
+	height: 500px;
+	border: 2px dotted red;
+	display: inline-block;
+}
+#table {
+	padding: 10px;
+	background-color: grey;
+}
+#catediv {
+background: grey;
+color: white;
+padding: 15px;
+margin: 10px;
+}
+
+#catediv ul{
+	padding: 0;
+	list-style: none;
+}
+#catediv ul li{
+	border-top: 1px solid white;
+	border-bottom: 1px solid white;
+}
+#catediv ul li a {
+padding: 10px;
+display: bolck;
+color: white;
+text-decoration: none;}
+#foot{  
+position:absolute;
+    bottom:0;
+    width:100%;
+    height:70px;}   
+</style>
+</head>
+<body>
+	<header>
+		<h1>Anything Mall</h1>
+		
+		<hr>
+		
+	</header>
+	<nav class="navi">
+		<ul class="a" style="text-align: center;">
+			<li>HOME</li>
+			<li>ABOUT US</li>
+			<li>NEWS</li>
+			<li>MY ACCOUNT</li>
+			<li>CONTACTS</li>
+		</ul>
+	</nav>
+	<hr>
+	<br>
+	<aside id="left">
+	<div id="catediv">
+	 <h2>CATEGORY</h2>
+		<ul>
+			<li><a href="">여행</a></li>
+			<li><a href="">의류</a></li>
+			<li><a href="">음악</a></li>
+			<li><a href="">영화</a></li>
+			<li><a href="">스포츠레저</a></li>
+			<li><a href="">가구/인테리어</a></li>
+			<li><a href="">식품</a></li>
+		</ul>
+	</div>
+	</aside>
+	<aside id="mid">
+		<article>
+
+			<div id="a">
+				<img src="c.PNG"><br>사보세요 한 번 사보세요. <br>완전 좋습니다. <br>최신형. <br>믿을 수 있는 내구성<br>가격120만원
+				<br><br><input type="button" value="쇼핑카트에추가하기"> 
+			</div>
+			<div id="b">
+				<img src="d.PNG"><br>사보세요 한 번 사보세요. <br>완전 좋습니다. <br>최신형. <br>믿을 수 있는 내구성<br>가격120만원
+				<br><br><input type="button" value="쇼핑카트에추가하기"> 
+			</div>
+
+
+
+		</article>
+	</aside>
+	<aside id="right">
+
+		<span style="font-weight: bold">Shopping Cart</span><br>현재 쇼핑카트에 물품이 없습니다. <a href="http://localhost:8080/HTML5/example/shoppingcart.html">쇼핑카트보기</a>
+		<br> <br> <br> <span style="font-weight: bold;">Login</span><br> 아 이 디 <input><br>
+		패스워드<input><br> <input type="button" value="로그인">
+		<input type="button" value="초기화"><br> <a
+			href="http://localhost:8080/HTML5/example/register.html">회원가입</a> <a href="www.naver.com">비밀번호분실</a>
+	</aside>
+<footer id="foot">
+<address>
+Copyright ⓒ 2020 AnythingMall
+</address>
+</footer>
+</body>
+
+</html>

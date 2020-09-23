@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+div {
+	width: 450px;
+	height: 90px;
+	border: 1px solid black;
+
+}
+</style>
+<script>
+var currentId;
+
+function checkEvent(event) {
+	console.log("event id : "+event.target.id);
+}
+
+function drag(event) {
+	console.log("event id : "+event.target.id);
+	currentId = event.target.id;
+	event.dataTransfer.setData("eventId",event.target.id);	
+	//->dataTransfer.setData() : 첫번째 인자는 드래그할 요소의 format, 두번째는 드래그할 요소
+}
+
+function drop(event) {
+	console.log(event.target.nodeName);
+	if(event.target.nodeName=="DIV"){
+		var dropDiv = document.getElementById(event.target.id);
+		var eventId = event.dataTransfer.getData("eventId");
+		//event.dataTransfer.setData() 에서 셋팅한 "eventId"를 불러온다.
+		var dragImg = document.getElementById(eventId);
+		dropDiv.appendChild(dragImg);
+		console.log("drop event id : "+ eventId);
+		console.log("drop id : "+event.target.id);
+	}
+}
+
+</script>
+
+</head>
+<body>
+<input id="btn1" type ="button" onclick="checkEvent(event)" value="confirm">
+<h1>이미지를 드래그 하세요</h1>
+<div id="div1" ondrop="drop(event)" ondragover="return false"></div> 
+<!-- 드래그 오버 이벤트는 드랍 이벤트와 쓰일 수 없기 때문에 드래그 오버를 막습니다. return false -->
+<div id="div2" ondrop="drop(event)" ondragover="return false"></div> 
+
+
+<img id = "img1" width="150px" height="90px" src="pic1.jpg"
+draggable="true" ondragstart="drag(event)"
+ondrag="console.log('드래그중이에요')"><br>
+<img id = "img2" width="150px" height="90px" src="pic2.jpg"
+draggable="true" ondragstart="drag(event)"><br>
+<img id = "img3" width="150px" height="90px" src="pic3.jpg"
+draggable="true" ondragstart="drag(event)"><br>
+
+</body>
+</html>
