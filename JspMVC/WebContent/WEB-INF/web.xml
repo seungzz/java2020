@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <!-- 
+  CGI 프로그램과 서블릿
+  CGI는 Common Gateway Interface의 약자입니다.
+  웹애플리케이션은 웹브라우저가 서버에게 실행을 요청합니다.
+  서버는 클라이언트가 요청한 프로그램을 찾아서 실행하고,해당프로그램은
+  작업을 수행한 후 그 결과를 웹서버에게 돌려줍니다. 그러면 웹서버는
+  HTTP 형식에 맞춰서 웹브라우저에게 결과를 보내주게 됩니다.
+  이 때 웹 서버와 프로그램 사이의 데이터를 주고 받는 규칙을 CGI라고 
+  부릅니다. 그리고 주고 받는 프로그램을 CGI라고 합니다. 
+  
+  자바가 사용하는 CGI 프로그램 - > 서블릿이라고 합니다.
+  자바 서블릿과 다른 CGI프로그램과 다른점은 웹서버와 직접 데이터를 
+  주고 받지 않으며, 전문 프로그램에 의해 관리 됩니다. 
+  
+  서블릿 컨테이너
+  서블릿의 생성과 실행, 소멸 등 생명주기를 관리하는 프로그램을 
+  서블릿 컨테이너 라고 합니다. 서블릿 컨테이너가 서블릿을 대신해서
+  CGI 규칙에 따라 웹서버와 데이터를 주고 받습니다. 그래서 사용자는
+  CGI 규칙은 잘 몰라도 괜찮지만, 서블릿과 서블릿 컨테이너 사이의
+  규칙을 알아야 합니다.
+  
+ WAS
+  클라이언트 서버 시스템 구조에서 서버쪽 애플리케이션의 생성과 실행,
+  소멸을 관리하는 프로그램을 '애플리케이션 서버'라 합니다. 그중에서
+  서블릿과 서블릿 컨테이너와 같이 웹기술을 기반으로 동작하는 애플리케이션 
+  서버를 WAS(Web Apllication Server)라 합니다. 
+  흔히 java에서 말하는 WAS는 java EE의 기술사양을 준수하여 만든 서버를 
+  가리킵니다. (자바스크립트, jsp 등등 )
+   -->
+ <display-name>JspMVC</display-name> 
+ <!-- context 초기화 매개변수는 같은 웹 애플리케이션에 소속된 서블릿들이
+ 		공유하는 매개변수입니다. -->
+ 	<context-param>
+ 		<param-name>JDBC_DRIVER</param-name>
+ 		<param-value>oracle.jdbc.driver.OracleDriver</param-value>
+ 	</context-param>
+ 	<context-param>
+ 		<param-name>URL</param-name>
+ 		<param-value>jdbc:oracle:thin:@localhost:1521:xe</param-value>
+ 	</context-param>
+ 	<context-param>
+ 		<param-name>USER</param-name>
+ 		<param-value>hr</param-value>
+ 	</context-param>
+ 	<context-param>
+ 		<param-name>PASSWORD</param-name>
+ 		<param-value>hr</param-value>
+ 	</context-param>
+ 	
+ 	
+ 	<!--  
+ 	필터는 서블릿 실행 전후에 어떤 작업을 하고자 할때 사용하는 기술입니다.
+ 	예를 들면 클라이언트가 보낸 데이터의 암호를 해제하거나, 서블릿이 실행되기
+ 	전에 필요한 자원을 미리 준비하거나, 서블릿이 실행될 때마다 로그를 남긴다거나 
+ 	하는 작업을 필터를 통해 처리할 수 있습니다. 
+ 	<filter>
+ 		<filter-name>CharacterEncodingFilter</filter-name>
+ 		<filter-class>spms.filters.CharacterEncodingFilter</filter-class>
+ 		<init-param>
+ 			<param-name>encoding</param-name>
+ 			<param-value>UTF-8</param-value>
+ 		</init-param>
+ 	</filter>
+ 	
+ 	<filter-mapping>
+ 		<filter-name>CharacterEncodingFilter</filter-name>
+ 		<url-pattern>/*</url-pattern>
+ 	</filter-mapping>
+ 	-->
+ 	<!--  
+  <servlet>
+  	<servlet-name>AppInitServlet</servlet-name>
+  	<servlet-class>spms.servlets.AppInitServlet</servlet-class>
+  	<load-on-startup>1</load-on-startup>
+  </servlet>
+    -->
+  <listener>
+  	<listener-class>spms.listeners.ContextLoaderListener</listener-class>
+  </listener>
+  
+  <servlet><!-- 서블릿 선언 -->
+   	<servlet-name>ConnectionPool2</servlet-name>
+  	<servlet-class>spms.util.ConnectionPool2</servlet-class>
+  	<!-- init-param 서블릿 초기화 매개변수 
+  	서블릿을 초기화할때, 서블릿 컨테이너가 전달하는 데이터입니다.  -->
+  	<init-param> 
+  		<param-name>JDBC_DRIVER</param-name>
+  		<param-value>oracle.jdbc.driver.OracleDriver</param-value>
+  	</init-param>
+  </servlet>
+  
+    
+  <servlet-mapping> <!-- 서블릿을 URL과 연결 -->
+  	<servlet-name>ConnectionPool2</servlet-name>
+  	<url-pattern>/CP2</url-pattern>
+  </servlet-mapping>
+  
+  <!-- <servlet> 서블릿 선언 
+  	<servlet-name>Calculator</servlet-name>
+  	<servlet-class>lesson.servlet.CalculatorServlet</servlet-class>
+  </servlet>
+  -->
+  
+  <servlet><!-- 서블릿 선언 -->
+   	<servlet-name>Hello</servlet-name>
+  	<servlet-class>lesson.servlet.HelloWorld</servlet-class>
+  </servlet>
+  <servlet-mapping> <!-- 서블릿을 URL과 연결 -->
+  	<servlet-name>Hello</servlet-name>
+  	<url-pattern>/Hello</url-pattern>
+  </servlet-mapping>
+  
+  <!--  <servlet-mapping> 서블릿을 URL과 연결 
+  	<servlet-name>Calculator</servlet-name>
+  	<url-pattern>/calc</url-pattern>
+  </servlet-mapping>
+  -->
+  
+  <welcome-file-list><!-- 기본 웹페이지 등록 -->
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>

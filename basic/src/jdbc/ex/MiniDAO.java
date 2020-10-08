@@ -12,6 +12,8 @@ import Util.ConnectionPool;
 import jdbc.ConnectionFactory;
 
 public class MiniDAO {
+	Scanner sc = new Scanner(System.in);
+	
 	private static final int INET_COUNT = 10;
 	private static List<Connection> freeList = new ArrayList<Connection>();
 	private static List<Connection> usedList = new ArrayList<Connection>();
@@ -42,33 +44,84 @@ public class MiniDAO {
 	}	
 	
 	void select() {
-		
-		
+		boolean run = true;
+		int i=1;
+		int j=10;
 		
 		try {
+			
 			
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			String url = "jdbc:oracle:thin:@localhost:1521:xe";
 			Connection con = DriverManager.getConnection(url,"hr","hr");
 
-			String sql = "select id, storename, storenum, location, recommendedmenu, price ";
-			sql +="from t_board ";
-			sql +="where rownum between 1 and 10";
-			sql +="order by id asc ";
+
+
+			String sql = "select * from (select ROWNUM rnum, storename, storenum, location, ";
+					sql += " recommendedmenu, price from t_board) ";
+					sql += "where rnum between 1 and 10 ";
 			
+			
+					
+					
 			
 			PreparedStatement pstnt = con.prepareStatement(sql);
 			ResultSet rs = pstnt.executeQuery();
 			
+			
+			
+			
+			
 			while(rs.next()) {	//true혹은 false반환
-				int num = rs.getInt("id");
+				int num = rs.getInt("rnum");
 				String storename = rs.getString("storename");
 				int storenum  = rs.getInt("storenum");
 				String location = rs.getString("location");
 				String recommendedmenu = rs.getString("recommendedmenu");
 				int price = rs.getInt("price");
 				System.out.println(num+"\t"+storename+"\t"+storenum+"\t"+location+"\t"+recommendedmenu+"\t"+price);
-		
+				
+				
+			}
+			
+			
+			while(run) {
+				System.out.println("1.이전페이지 2.다음페이지 3.종료");
+				System.out.println("입력하세요>>");
+				int selectNo = sc.nextInt();
+				
+				sql = "select * from (select ROWNUM rnum, storename, storenum, location, ";
+				sql += " recommendedmenu, price from t_board) ";
+				
+				
+				switch (selectNo) {
+				case 1:
+					
+					sql +="where rnum between "+(i-10) +"and " +(j-10) ;
+					
+				case 2:
+					
+					sql +="where rnum between "+(i+10) +"and " +(j+10) ;
+				case 3:
+				
+					break;
+				}
+				
+				 con = DriverManager.getConnection(url,"hr","hr");
+				 pstnt = con.prepareStatement(sql);
+				 rs = pstnt.executeQuery();
+				 while(rs.next()) {	//true혹은 false반환
+						int num = rs.getInt("rnum");
+						String storename = rs.getString("storename");
+						int storenum  = rs.getInt("storenum");
+						String location = rs.getString("location");
+						String recommendedmenu = rs.getString("recommendedmenu");
+						int price = rs.getInt("price");
+						System.out.println(num+"\t"+storename+"\t"+storenum+"\t"+location+"\t"+recommendedmenu+"\t"+price);
+						
+						
+					}
+				 
 			}
 				rs.close();
 				pstnt.close();
