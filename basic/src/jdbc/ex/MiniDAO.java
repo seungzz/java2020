@@ -57,21 +57,17 @@ public class MiniDAO {
 
 
 
-			String sql = "select * from (select ROWNUM rnum, storename, storenum, location, ";
+			String sql = "select * from (select ROWNUM rnum, storename, id, storenum, location, ";
 					sql += " recommendedmenu, price from t_board) ";
 					sql += "where rnum between 1 and 10 ";
 			
-			
-					
-					
 			
 			PreparedStatement pstnt = con.prepareStatement(sql);
 			ResultSet rs = pstnt.executeQuery();
 			
 			
-			
-			
-			
+			System.out.println("순번"+"\t"+"가게이름"+"\t"+"고유id"+"\t"+"가게번호"+"\t"+"가게위치"+"\t"+"추천메뉴"+"\t"+"메뉴가격");
+
 			while(rs.next()) {	//true혹은 false반환
 				int num = rs.getInt("rnum");
 				String storename = rs.getString("storename");
@@ -79,7 +75,9 @@ public class MiniDAO {
 				String location = rs.getString("location");
 				String recommendedmenu = rs.getString("recommendedmenu");
 				int price = rs.getInt("price");
-				System.out.println(num+"\t"+storename+"\t"+storenum+"\t"+location+"\t"+recommendedmenu+"\t"+price);
+				int id = rs.getInt("id");
+
+				System.out.println(num+"\t"+storename+"\t"+id+"\t"+storenum+"\t"+location+"\t"+recommendedmenu+"\t"+price);
 				
 				
 			}
@@ -105,7 +103,9 @@ public class MiniDAO {
 				case 3:
 				
 					break;
+					
 				}
+				run = false;
 				
 				 con = DriverManager.getConnection(url,"hr","hr");
 				 pstnt = con.prepareStatement(sql);
@@ -205,7 +205,7 @@ Class.forName("oracle.jdbc.driver.OracleDriver");
 			sc.nextLine();
 			System.out.println("수정할 가게위치");
 			sql += "', location = '"+sc.nextLine();
-			System.out.println("수정할 번호 입력");
+			System.out.println("수정할 고유id 입력");
 			sql +="' where id = '"+sc.nextInt()+"'";
  		
 			PreparedStatement pstnt = con.prepareStatement(sql);

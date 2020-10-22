@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.GenericServlet;
@@ -20,6 +21,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import spms.controls.Controller;
 import spms.dao.MemberDAO;
 import spms.util.ConnectionPool;
 import spms.vo.MemberVO;
@@ -36,9 +38,15 @@ public class MemberListServlet extends HttpServlet{
 			
 			ServletContext sc = this.getServletContext();
 			
+			HashMap<String, Object> model = new HashMap<String, Object>();
+			
+			model.put("memberDAO", sc.getAttribute("memberDAO"));
+			String pageControllerPath = null;
+			Controller pageController = null;
+			
 			MemberDAO memberDAO = (MemberDAO)sc.getAttribute("memberDAO");
 			request.setAttribute("members", memberDAO.selectList());
-			System.out.println("list·Î µé¾î¿È");
+			
 			request.setAttribute("members", memberDAO.selectList());
 			request.setAttribute("viewUrl", "/member/MemberList.jsp");
 			

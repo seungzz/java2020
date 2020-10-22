@@ -27,6 +27,9 @@ public class MemberUpdateServlet extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		
+		
 		request.setAttribute("viewUrl", "/member/MemberUpdateForm.jsp");
 		
 
