@@ -4,7 +4,20 @@ import java.util.Scanner;
 
 public class Mini_Main {
 	public static void main(String[] args) {
-		MiniDAO miniDAO = new MiniDAO();
+		MiniDAO miniDAO = new MiniDAO() {
+			
+			@Override
+			public void register() throws Exception {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void modify() throws Exception {
+				// TODO Auto-generated method stub
+				
+			}
+		};
 		Scanner sc = new Scanner(System.in);
 		boolean run = true;
 		while (run) {

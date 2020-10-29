@@ -11,7 +11,7 @@ import java.util.Scanner;
 import Util.ConnectionPool;
 import jdbc.ConnectionFactory;
 
-public class MiniDAO {
+public abstract class MiniDAO implements SearchService{
 	Scanner sc = new Scanner(System.in);
 	
 	private static final int INET_COUNT = 10;
@@ -43,7 +43,7 @@ public class MiniDAO {
 		freeList.add(con);
 	}	
 	
-	void select() {
+	public void select() {
 		boolean run = true;
 		int i=1;
 		int j=10;
@@ -163,7 +163,7 @@ public class MiniDAO {
 			e.printStackTrace();
 		}
 	}
-	void delete() {
+	public void delete() {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 	
